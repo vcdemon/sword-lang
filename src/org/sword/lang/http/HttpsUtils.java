@@ -29,7 +29,7 @@ public class HttpsUtils {
 			}
 			HttpResponse response = client.execute(post);
 			HttpEntity entity = response.getEntity();
-			String result = EntityUtils.toString(entity);
+			String result = EntityUtils.toString(entity, "utf-8");
 			return result;
 		} catch (Exception e) {
 			logger.error("https post error," + e.getMessage());
@@ -50,7 +50,7 @@ public class HttpsUtils {
 			HttpGet get = new HttpGet(url);
 			HttpResponse response = client.execute(get);
 			HttpEntity entity = response.getEntity();
-			String result = EntityUtils.toString(entity);
+			String result = EntityUtils.toString(entity, "utf-8");
 			return result;
 		} catch (Exception e) {
 			logger.error("https get error," + e.getMessage());

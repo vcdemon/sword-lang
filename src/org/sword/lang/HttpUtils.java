@@ -13,7 +13,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.entity.mime.MultipartEntity;
@@ -84,7 +83,7 @@ public class HttpUtils {
 			}
 			HttpResponse response = httpClient.execute(post);
 			HttpEntity entity = response.getEntity();
-			return entity != null ? EntityUtils.toString(entity) : null;
+			return entity != null ? EntityUtils.toString(entity, "utf-8") : null;
 		} catch (Exception e) {
 			logger.error("post请求异常，" + e.getMessage() + "\n post url:" + url);
 			e.printStackTrace();
@@ -107,7 +106,7 @@ public class HttpUtils {
 			}
 			HttpResponse response = httpClient.execute(post);
 			HttpEntity entity = response.getEntity();
-			return entity != null ? EntityUtils.toString(entity) : null;
+			return entity != null ? EntityUtils.toString(entity, "utf-8") : null;
 		} catch (Exception e) {
 			logger.error("post请求异常，" + e.getMessage() + "\n post url:" + url);
 			e.printStackTrace();
@@ -144,7 +143,7 @@ public class HttpUtils {
 			}
 			HttpResponse response = httpClient.execute(post);
 			HttpEntity entity = response.getEntity();
-			return entity != null ? EntityUtils.toString(entity) : null;
+			return entity != null ? EntityUtils.toString(entity, "utf-8") : null;
 		} catch (Exception e) {
 			logger.error("post请求异常，" + e.getMessage() + "\n post url:" + url);
 			e.printStackTrace();
@@ -166,7 +165,7 @@ public class HttpUtils {
 			HttpGet get = new HttpGet(url);
 			HttpResponse response = httpClient.execute(get);
 			HttpEntity entity = response.getEntity();
-			return entity != null ? EntityUtils.toString(entity) : null;
+			return entity != null ? EntityUtils.toString(entity, "utf-8") : null;
 		} catch (Exception e) {
 			logger.error("get请求异常，" + e.getMessage() + "\n get url:" + url);
 			e.printStackTrace();
